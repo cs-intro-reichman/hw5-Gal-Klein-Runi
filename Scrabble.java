@@ -50,7 +50,7 @@ public class Scrabble {
 	public static boolean isWordInDictionary(String word) {
 		//// Replace the following statement with your code
 		for (int i=0; i<NUM_OF_WORDS; i++) {
-			if (DICTIONARY[i]==word) {
+			if (DICTIONARY[i].equals(word)) {
 				return true;
 			}
 		}
