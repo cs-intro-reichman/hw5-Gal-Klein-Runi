@@ -126,7 +126,7 @@ public class Scrabble {
 			else if (isWordInDictionary(input)) {
 				int currentScore=wordScore(input);
 				score+= currentScore;
-			    hand=MyString.remove(input,hand);
+				hand = MyString.remove(hand, input);
 				System.out.println(input+ " earned "+ currentScore +" points. Score: "+ score +" points\n");
 			}
 			else{
