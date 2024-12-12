@@ -8,6 +8,14 @@ public class MyString {
         System.out.println(countChar(hello, 'l'));
         System.out.println(countChar(hello, 'z'));
         System.out.println(spacedString(hello));
+        System.out.println(spacedString(hello));
+        System.out.println(subsetOf("sap","space"));//true
+        System.out.println(subsetOf("spa","space"));//true
+        System.out.println(subsetOf("pass","space"));//false
+        System.out.println(subsetOf("l","space"));//false
+        System.out.println(subsetOf("space","space"));//true
+        System.out.println(randomStringOfLetters(5));
+
         //// Put your other tests here.
     }
 
@@ -21,7 +29,13 @@ public class MyString {
      */
     public static int countChar(String str, char ch) {
         //// Replace the following statement with your code
-        return 0;
+        int c = 0;
+        for (int i=0; i<str.length(); i++) {
+            if (ch==str.charAt(i)) {
+                c++;
+            }
+        }
+        return c;
     }
 
     /** Returns true if str1 is a subset string str2, false otherwise
@@ -37,7 +51,28 @@ public class MyString {
      */
     public static boolean subsetOf(String str1, String str2) {
          //// Replace the following statement with your code
-        return false;
+         char [] str2Array = new char [str2.length()];
+         for (int i=0; i<str2.length(); i++) {
+            str2Array[i] = str2.charAt(i);
+         }
+
+         for (int i=0; i<str1.length();i++) {
+            char ch = str1.charAt(i);
+            boolean match = false;
+
+            for (int j=0; j<str2Array.length; j++) {
+                if (ch==str2Array[j]) {
+                    str2Array[j]=0;
+                    match=true;
+                    break;
+                }
+            }
+
+            if (match==false) {
+                return false;
+            }
+         }
+        return true;
     }
 
     /** Returns a string which is the same as the given string, with a space
@@ -50,7 +85,14 @@ public class MyString {
      */
     public static String spacedString(String str) {
         //// Replace the following statement with your code
-        return null;
+        String newStr = "";
+        for (int i=0; i<str.length(); i++) {
+            newStr = newStr+str.charAt(i);
+            if (i!=str.length()-1) {
+                newStr = newStr+" ";
+            }
+        }
+        return newStr;
     }
   
     /**
@@ -65,7 +107,13 @@ public class MyString {
      */
     public static String randomStringOfLetters(int n) {
         //// Replace the following statement with your code
-        return null;
+        String newStr = "";
+        for (int i=0; i<n; i++) {
+            double random = Math.random()*25;
+            int randomChar = (int) random+97;
+            newStr = newStr+(char) randomChar;
+        }
+        return newStr;
     }
 
     /**
@@ -79,7 +127,29 @@ public class MyString {
      */
     public static String remove(String str1, String str2) {
        //// Replace the following statement with your code
-        return null;
+        char [] str1Array = new char[str1.length()];
+        for (int i=0;i<str1.length(); i++) {
+            str1Array[i] = str1.charAt(i);
+        }
+
+        for (int i=0;i<str2.length(); i++) {
+            char ch=str2.charAt(i);
+            for (int j=0;j<str1Array.length; j++) {
+                if (str1Array[j]==ch) {
+                    str1Array[j]= 0;
+                    break;
+                }
+            }
+        }
+
+        String result = "";
+        for (int i=0; i<str1Array.length; i++) {
+            if (str1Array[i]!= 0) {
+                result =  result+str1Array[i];
+            }
+        }
+       
+       return result;
     }
 
     /**
