@@ -137,6 +137,7 @@ public class MyString {
             for (int j=0;j<str1Array.length; j++) {
                 if (str1Array[j]==ch) {
                     str1Array[j]= 0;
+                    break;
                 }
             }
         }
